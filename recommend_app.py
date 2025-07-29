@@ -4,14 +4,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Load datasets
 ratings_cols = ['user_id', 'movie_id', 'rating', 'timestamp']
-ratings = pd.read_csv(r'ml-100k\u.data', sep='\t', names=ratings_cols)
+ratings = pd.read_csv(r'ml-100k/u.data', sep='\t', names=ratings_cols)
 
 movies_cols = ['movie_id', 'title', 'release_date', 'video_release_date', 'imdb_url',
                'unknown', 'Action', 'Adventure', 'Animation', 'Children',
                 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'Musical',
                 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
 
-movies = pd.read_csv(r'ml-100k\u.item', sep='|', names=movies_cols, encoding='latin-1')
+movies = pd.read_csv(r'ml-100k/u.item', sep='|', names=movies_cols, encoding='latin-1')
 
 # Merge
 combined = pd.merge(ratings, movies[['movie_id', 'title']], on='movie_id')
